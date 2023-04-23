@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="@dimen/margin_16"
+    android:layout_height="@dimen/search_result_height">
+
+    <com.darkular.tickets.ui.core.CustomImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"/>
+
+    <Space
+        android:layout_width="@dimen/margin_16"
+        android:layout_height="match_parent"/>
+
+    <com.darkular.tickets.ui.core.CustomTextView
+        android:id="@+id/userNameTextView"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:text="Hovhannes" />
+
+    <ImageButton
+        android:id="@+id/chatButton"
+        android:padding="@dimen/margin_16"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_chat_black_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="ContentDescription" />
+
+</LinearLayout>

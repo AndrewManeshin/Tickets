@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "499536357335",
+    "project_id": "ticketsapp-28ab4",
+    "storage_bucket": "ticketsapp-28ab4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499536357335:android:6577961cf22ae335320d92",
+        "android_client_info": {
+          "package_name": "com.darkular.tickets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499536357335-th6rccurolff08erocep4hpo27ptb8ld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByjIEMT_QUt91apMzu4gfI4TC81JUvggA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499536357335-th6rccurolff08erocep4hpo27ptb8ld.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
