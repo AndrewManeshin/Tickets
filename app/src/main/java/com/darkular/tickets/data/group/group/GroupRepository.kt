@@ -60,7 +60,7 @@ interface GroupRepository: ReadMessage {
             if (!internetConnection.isConnect()) throw IllegalStateException()
 
             val group = groupReference().push()
-            val result = group.setValue(MessageData.Base(myUid, message))
+            val result = group.setValue(MessageData.Base(myUid, message, Firebase.auth.currentUser!!.photoUrl!!.toString()))
             return handle(result)
         }
 

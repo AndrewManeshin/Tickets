@@ -18,8 +18,12 @@ class CustomImageView : androidx.appcompat.widget.AppCompatImageView, AbstractVi
     //endregion
 
     override fun load(url: String) {
-        if (url.isNotEmpty())
+        if (url.isNotEmpty()) {
             Picasso.get().load(url).into(this)
+            show()
+        } else {
+            hide()
+        }
     }
 
     override fun show() {

@@ -4,7 +4,7 @@ import com.darkular.tickets.data.search.GroupId
 import com.darkular.tickets.data.chat.UserId
 import com.darkular.tickets.data.search.SearchGroupRepository
 import com.darkular.tickets.data.search.SearchUserRepository
-import com.darkular.tickets.domain.SearchInteractor
+import com.darkular.tickets.domain.search.SearchInteractor
 import com.darkular.tickets.sl.core.BaseModule
 import com.darkular.tickets.sl.core.CoreModule
 import com.darkular.tickets.ui.search.SearchCommunication

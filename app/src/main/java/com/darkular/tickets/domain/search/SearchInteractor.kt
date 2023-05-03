@@ -1,4 +1,4 @@
-package com.darkular.tickets.domain
+package com.darkular.tickets.domain.search
 
 import com.darkular.tickets.data.search.SearchData
 import com.darkular.tickets.data.search.SearchGroupRepository

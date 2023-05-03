@@ -1,6 +1,7 @@
 package com.darkular.tickets.data.chat
 
 import android.net.ConnectivityManager
+import android.net.Uri
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot

@@ -3,7 +3,7 @@ package com.darkular.tickets.ui.search
 import androidx.lifecycle.viewModelScope
 import com.darkular.tickets.R
 import com.darkular.tickets.core.Delay
-import com.darkular.tickets.domain.SearchInteractor
+import com.darkular.tickets.domain.search.SearchInteractor
 import com.darkular.tickets.ui.core.BaseViewModel
 import com.darkular.tickets.ui.main.NavigationCommunication
 import com.darkular.tickets.ui.main.NavigationUi

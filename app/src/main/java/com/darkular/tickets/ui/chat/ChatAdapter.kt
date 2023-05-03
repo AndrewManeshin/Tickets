@@ -68,7 +68,7 @@ abstract class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     ) :
         ChatViewHolder(binding.root) {
         override fun bind(item: MessageUi) {
-            item.map(binding.messageTextView)
+            item.map(binding.messageTextView, binding.userAvatarImageView)
             readMessage.click(item)
         }
     }

@@ -1,20 +1,17 @@
 package com.darkular.tickets.ui.chat
 
+import android.net.Uri
 import com.darkular.tickets.core.Abstract
 import com.darkular.tickets.ui.core.AbstractView
 import com.darkular.tickets.ui.core.ClickListener
-
 
 interface MessageUi {
 
     fun isMyMessage(): Boolean
 
-    fun map(textMapper: TextMapper.Void)
-    fun map(
-        textView: AbstractView.Text,
-        progressView: AbstractView,
-        stateView: MessageState
-    )
+    fun map(textMapper: TextMapper.Void, imageView: AbstractView.Image) = Unit
+    fun map(textMapper: TextMapper.Void) = Unit
+    fun map(textView: AbstractView.Text, progressView: AbstractView, stateView: MessageState) = Unit
 
     fun newState(state: MyMessageUiState): MessageUi
     fun same(messageUi: MessageUi): Boolean
@@ -60,22 +57,19 @@ interface MessageUi {
     data class FromUser(
         private val id: String,
         private val text: String,
+        private val avatarUrl: String,
         private val isRead: Boolean
     ) : MessageUi {
         override fun isMyMessage() = false
-        override fun map(textMapper: TextMapper.Void) {
+
+        override fun map(textMapper: TextMapper.Void, imageView: AbstractView.Image) {
             textMapper.map(text)
+            imageView.load(avatarUrl)
         }
 
         override fun newState(state: MyMessageUiState) = this
 
         override fun same(messageUi: MessageUi) = messageUi is FromUser && id == messageUi.id
-
-        override fun map(
-            textView: AbstractView.Text,
-            progressView: AbstractView,
-            stateView: MessageState
-        ) = Unit
 
         override fun click(clickListener: ClickListener<MessageUi>) = Unit
 
