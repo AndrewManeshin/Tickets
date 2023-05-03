@@ -4,6 +4,7 @@ import com.darkular.tickets.R
 import com.darkular.tickets.ui.chat.ChatFragment
 import com.darkular.tickets.ui.chats.ChatsFragment
 import com.darkular.tickets.ui.core.BaseViewModel
+import com.darkular.tickets.ui.groups.chat.GroupFragment
 import com.darkular.tickets.ui.groups.create.CreateGroupFragment
 import com.darkular.tickets.ui.profile.MyProfileFragment
 import com.darkular.tickets.ui.search.SearchFragment
@@ -22,7 +23,8 @@ class MainViewModel(
         R.id.navigation_search to SearchFragment::class.java,
         R.id.navigation_chats to ChatsFragment::class.java,
         R.id.chat_screen to ChatFragment::class.java,
-        R.id.create_group_screen to CreateGroupFragment::class.java
+        R.id.create_group_screen to CreateGroupFragment::class.java,
+        R.id.group_chat_screen to GroupFragment::class.java
     )//todo move to some class
 
     fun getFragment(id: Int): BaseFragment<*> {

@@ -9,7 +9,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.darkular.tickets.core.FirebaseDatabaseProvider
 import com.darkular.tickets.core.Save
-import com.darkular.tickets.data.groups.create.GroupItem
+import com.darkular.tickets.data.group.create.GroupItem
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

@@ -1,34 +1,23 @@
-package com.darkular.tickets.data.chat
+package com.darkular.tickets.data.group.group
 
-import android.net.ConnectivityManager
+import com.darkular.tickets.core.FirebaseDatabaseProvider
+import com.darkular.tickets.core.Read
+import com.darkular.tickets.data.chat.InternetConnection
+import com.darkular.tickets.data.chat.MessageData
+import com.darkular.tickets.data.chat.MessagesData
+import com.darkular.tickets.domain.chat.MessagesDataRealtimeUpdateCallback
+import com.darkular.tickets.ui.chat.ReadMessage
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
-import com.darkular.tickets.core.FirebaseDatabaseProvider
-import com.darkular.tickets.core.Read
-import com.darkular.tickets.domain.chat.MessagesDataRealtimeUpdateCallback
-import com.darkular.tickets.ui.chat.ReadMessage
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-interface InternetConnection {
-
-    fun isConnect(): Boolean
-
-    class Base(private val connectivityManager: ConnectivityManager) : InternetConnection {
-
-        override fun isConnect(): Boolean {
-            val networkInfo = connectivityManager.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-        }
-    }
-}
-
-interface ChatRepository : ReadMessage {
+interface GroupRepository: ReadMessage {
 
     suspend fun sendMessage(message: String): Boolean
     fun startGettingUpdates(dataCallback: MessagesDataRealtimeUpdateCallback)
@@ -37,15 +26,11 @@ interface ChatRepository : ReadMessage {
     class Base(
         private val firebaseDatabaseProvider: FirebaseDatabaseProvider,
         private val internetConnection: InternetConnection,
-        private val userIdContainer: Read<String>
-    ) : ChatRepository {
+        private val groupIdContainer: Read<String>
+    ) : GroupRepository {
 
         private val myUid = Firebase.auth.currentUser!!.uid
-        private val userId by lazy { userIdContainer.read() }
-        private val chatId by lazy { ChatId(Pair(myUid, userId)).value() }
-
-        private var callback: MessagesDataRealtimeUpdateCallback =
-            MessagesDataRealtimeUpdateCallback.Empty
+        private val groupId by lazy { groupIdContainer.read() }
 
         private val eventListener = object : ValueEventListener {
 
@@ -68,12 +53,29 @@ interface ChatRepository : ReadMessage {
             override fun onCancelled(error: DatabaseError) = Unit
         }
 
+        private var callback: MessagesDataRealtimeUpdateCallback =
+            MessagesDataRealtimeUpdateCallback.Empty
+
         override suspend fun sendMessage(message: String): Boolean {
             if (!internetConnection.isConnect()) throw IllegalStateException()
 
-            val chat = chatReference().push()
-            val result = chat.setValue(MessageData.Base(myUid, message))
+            val group = groupReference().push()
+            val result = group.setValue(MessageData.Base(myUid, message))
             return handle(result)
+        }
+
+        override fun startGettingUpdates(dataCallback: MessagesDataRealtimeUpdateCallback) {
+            callback = dataCallback
+            groupReference().addValueEventListener(eventListener)
+        }
+
+        override fun stopGettingUpdates() {
+            groupReference().removeEventListener(eventListener)
+            callback = MessagesDataRealtimeUpdateCallback.Empty
+        }
+
+        override fun readMessage(id: String) {
+            groupReference().child(id).child("wasRead").setValue(true)
         }
 
         private suspend fun handle(result: Task<Void>) = suspendCoroutine<Boolean> { cont ->
@@ -81,21 +83,6 @@ interface ChatRepository : ReadMessage {
                 .addOnFailureListener { cont.resumeWithException(it) }
         }
 
-        override fun startGettingUpdates(dataCallback: MessagesDataRealtimeUpdateCallback) {
-            callback = dataCallback
-            chatReference().addValueEventListener(eventListener)
-        }
-
-        override fun stopGettingUpdates() {
-            chatReference().removeEventListener(eventListener)
-            callback = MessagesDataRealtimeUpdateCallback.Empty
-        }
-
-        override fun readMessage(id: String) {
-            chatReference().child(id).child("wasRead").setValue(true)
-        }
-
-        private fun chatReference() =
-            firebaseDatabaseProvider.provideDatabase().child("chats").child(chatId)
+        private fun groupReference() = firebaseDatabaseProvider.provideDatabase().child("groups").child(groupId).child("messages")
     }
 }

@@ -1,12 +1,14 @@
-package com.darkular.tickets.domain.chat
+package com.darkular.tickets.domain.group
 
-import com.darkular.tickets.data.chat.ChatRepository
 import com.darkular.tickets.data.chat.MessagesData
 import com.darkular.tickets.data.chat.MessagesDataMapper
+import com.darkular.tickets.data.group.group.GroupRepository
+import com.darkular.tickets.domain.chat.MessagesDataRealtimeUpdateCallback
+import com.darkular.tickets.domain.chat.MessagesDomain
 import com.darkular.tickets.ui.chat.MessagesRealtimeUpdateCallback
 import com.darkular.tickets.ui.chat.ReadMessage
 
-interface ChatInteractor : ReadMessage {
+interface GroupInteractor : ReadMessage {
 
     suspend fun send(message: String): Boolean
 
@@ -14,9 +16,9 @@ interface ChatInteractor : ReadMessage {
     fun startGettingUpdates(callback: MessagesRealtimeUpdateCallback)
 
     class Base(
-        private val repository: ChatRepository,
+        private val repository: GroupRepository,
         private val mapper: MessagesDataMapper<MessagesDomain>,
-    ) : ChatInteractor {
+    ) : GroupInteractor {
 
         private var callback: MessagesRealtimeUpdateCallback = MessagesRealtimeUpdateCallback.Empty
 
@@ -43,13 +45,5 @@ interface ChatInteractor : ReadMessage {
         }
 
         override fun readMessage(id: String) = repository.readMessage(id)
-    }
-}
-
-interface MessagesDataRealtimeUpdateCallback {
-    fun updateMessages(messagesData: MessagesData)
-
-    object Empty : MessagesDataRealtimeUpdateCallback {
-        override fun updateMessages(messagesData: MessagesData) = Unit
     }
 }

@@ -1,4 +1,4 @@
-package com.darkular.tickets.data.groups.create
+package com.darkular.tickets.data.group.create
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth

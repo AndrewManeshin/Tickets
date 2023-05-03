@@ -1,15 +1,20 @@
-package com.darkular.tickets.ui.chat
+package com.darkular.tickets.ui.groups.chat
 
 import androidx.lifecycle.viewModelScope
 import com.darkular.tickets.domain.chat.ChatInteractor
 import com.darkular.tickets.domain.chat.MessagesDomain
 import com.darkular.tickets.domain.chat.MessagesDomainToUiMapper
+import com.darkular.tickets.domain.group.GroupInteractor
+import com.darkular.tickets.ui.chat.*
 import com.darkular.tickets.ui.core.BaseViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class ChatViewModel(
+class GroupViewModel(
     communication: ChatCommunication,
-    private val interactor: ChatInteractor,
+    private val interactor: GroupInteractor,
     private val mapper: MessagesDomainToUiMapper<List<MessageUi>>,
     private val dispatchersIO: CoroutineDispatcher = Dispatchers.IO,
     private val dispatchersMain: CoroutineDispatcher = Dispatchers.Main,
@@ -72,13 +77,5 @@ class ChatViewModel(
 
     override fun readMessage(id: String) {
         viewModelScope.launch(dispatchersIO) { interactor.readMessage(id) }
-    }
-}
-
-interface MessagesRealtimeUpdateCallback {
-    fun updateMessages(messagesDomain: MessagesDomain)
-
-    object Empty : MessagesRealtimeUpdateCallback {
-        override fun updateMessages(messagesDomain: MessagesDomain) = Unit
     }
 }

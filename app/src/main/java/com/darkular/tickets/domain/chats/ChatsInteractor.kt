@@ -4,7 +4,6 @@ import com.darkular.tickets.core.Save
 import com.darkular.tickets.data.chats.*
 import com.darkular.tickets.ui.chats.ChatsRealtimeUpdateCallback
 
-
 interface ChatsInteractor : Save<String> {
     fun stopGettingUpdates()
     fun startGettingUpdates(callback: ChatsRealtimeUpdateCallback)

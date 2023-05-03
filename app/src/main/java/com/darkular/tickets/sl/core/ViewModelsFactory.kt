@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.darkular.tickets.ui.chat.ChatViewModel
 import com.darkular.tickets.ui.chats.ChatsViewModel
+import com.darkular.tickets.ui.groups.chat.GroupViewModel
 import com.darkular.tickets.ui.groups.create.CreateGroupViewModel
 import com.darkular.tickets.ui.login.LoginViewModel
 import com.darkular.tickets.ui.main.MainViewModel
@@ -22,6 +23,7 @@ class ViewModelsFactory(
         put(ChatsViewModel::class.java, Feature.CHATS)
         put(ChatViewModel::class.java, Feature.CHAT)
         put(CreateGroupViewModel::class.java, Feature.CREATE_GROUP)
+        put(GroupViewModel::class.java, Feature.GROUP)
     }
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val feature =

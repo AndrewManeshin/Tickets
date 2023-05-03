@@ -1,7 +1,7 @@
 package com.darkular.tickets.ui.groups.create
 
 import androidx.lifecycle.viewModelScope
-import com.darkular.tickets.data.groups.create.CreateGroupRepository
+import com.darkular.tickets.data.group.create.CreateGroupRepository
 import com.darkular.tickets.ui.core.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
