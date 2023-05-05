@@ -15,6 +15,15 @@ interface ChatData {
         override fun <T> map(mapper: ChatDataMapper<T>) =
             mapper.map(otherUserId, lastMessage, notReadMessagesCount)
     }
+
+    data class Group(
+        private val groupId: String,
+        private val lastMessage: MessageData,
+        private val notReadMessagesCount: Int
+    ) : ChatData {
+        override fun <T> map(mapper: ChatDataMapper<T>) =
+            mapper.map(groupId, lastMessage, notReadMessagesCount)
+    }
 }
 
 interface ChatDataMapper<T> {

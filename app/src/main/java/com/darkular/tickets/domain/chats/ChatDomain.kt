@@ -1,6 +1,6 @@
 package com.darkular.tickets.domain.chats
 
-import com.darkular.tickets.ui.chats.ChatUi
+import com.darkular.tickets.presentation.chats.ChatUi
 
 
 interface ChatDomain {

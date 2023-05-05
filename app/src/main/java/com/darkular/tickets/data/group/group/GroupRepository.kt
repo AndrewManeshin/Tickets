@@ -6,7 +6,7 @@ import com.darkular.tickets.data.chat.InternetConnection
 import com.darkular.tickets.data.chat.MessageData
 import com.darkular.tickets.data.chat.MessagesData
 import com.darkular.tickets.domain.chat.MessagesDataRealtimeUpdateCallback
-import com.darkular.tickets.ui.chat.ReadMessage
+import com.darkular.tickets.presentation.chat.ReadMessage
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot

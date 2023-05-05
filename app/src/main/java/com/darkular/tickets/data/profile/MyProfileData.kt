@@ -1,7 +1,7 @@
 package com.darkular.tickets.data.profile
 
 import com.darkular.tickets.data.login.UserInitial
-import com.darkular.tickets.ui.profile.MyProfileUi
+import com.darkular.tickets.presentation.profile.MyProfileUi
 
 interface MyProfileData {
 

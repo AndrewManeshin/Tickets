@@ -7,7 +7,7 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <com.darkular.tickets.ui.core.CustomImageView
+    <com.darkular.tickets.presentation.core.CustomImageView
         android:id="@+id/avatarImageView"
         android:layout_width="@dimen/group_avatar_size"
         android:layout_height="@dimen/group_avatar_size"
@@ -17,7 +17,7 @@
         android:layout_width="@dimen/margin_32"
         android:layout_height="match_parent" />
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/userNameTextView"
         android:layout_width="0dp"
         android:layout_height="match_parent"

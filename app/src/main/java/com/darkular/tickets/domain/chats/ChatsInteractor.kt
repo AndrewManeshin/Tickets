@@ -1,25 +1,37 @@
 package com.darkular.tickets.domain.chats
 
-import com.darkular.tickets.core.Save
 import com.darkular.tickets.data.chats.*
-import com.darkular.tickets.ui.chats.ChatsRealtimeUpdateCallback
+import com.darkular.tickets.data.group.groups.GroupsDataRealtimeUpdateCallback
+import com.darkular.tickets.data.group.groups.GroupsRepository
+import com.darkular.tickets.presentation.chats.ChatsRealtimeUpdateCallback
 
-interface ChatsInteractor : Save<String> {
+interface ChatsInteractor {
     fun stopGettingUpdates()
     fun startGettingUpdates(callback: ChatsRealtimeUpdateCallback)
-    suspend fun userInfo(userId: String): UserChatDomain
+    suspend fun userInfo(userId: String): ChatInfoDomain
+    suspend fun groupInfo(groupId: String): ChatInfoDomain
+
+    fun saveChat(data: String)
+    fun saveGroup(data: String)
 
     class Base(
-        private val repository: ChatsRepository,
+        private val chatsRepository: ChatsRepository,
+        private val groupsRepository: GroupsRepository,
         private val mapper: ChatDataMapper<ChatDomain>,
-        private val userChatMapper: UserChatDataMapper<UserChatDomain>
+        private val userChatMapper: UserChatDataMapper<ChatInfoDomain>
     ) : ChatsInteractor {
 
         private var callback: ChatsRealtimeUpdateCallback = ChatsRealtimeUpdateCallback.Empty
 
-        private val dataCallback = object : ChatsDataRealtimeUpdateCallback {
+        private val chatsDataCallback = object : ChatsDataRealtimeUpdateCallback {
             override fun updateChats(chatDataList: List<ChatData>) {
                 callback.updateChats(chatDataList.map { it.map(mapper) })
+            }
+        }
+
+        private val groupsDataCallBack = object : GroupsDataRealtimeUpdateCallback {
+            override fun updateGroups(groupDataList: List<ChatData>) {
+                callback.updateGroups(groupDataList.map { it.map(mapper) })
             }
         }
 
@@ -29,12 +41,17 @@ interface ChatsInteractor : Save<String> {
 
         override fun startGettingUpdates(callback: ChatsRealtimeUpdateCallback) {
             this.callback = callback
-            repository.startGettingUpdates(dataCallback)
+            chatsRepository.startGettingUpdates(chatsDataCallback)
+            groupsRepository.startGettingUpdates(groupsDataCallBack)
         }
 
         override suspend fun userInfo(userId: String) =
-            repository.userInfo(userId).map(userChatMapper)
+            chatsRepository.userInfo(userId).map(userChatMapper)
 
-        override fun save(data: String) = repository.save(data)
+        override suspend fun groupInfo(groupId: String) =
+            groupsRepository.groupInfo(groupId).map(userChatMapper)
+
+        override fun saveChat(data: String) = chatsRepository.save(data)
+        override fun saveGroup(data: String) = groupsRepository.save(data)
     }
 }

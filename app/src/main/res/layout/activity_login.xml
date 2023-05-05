@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".presentation.login.LoginActivity">
 
     <TextView
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -18,14 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="32dp"/>
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         tools:text="Something went wrong"
         android:id="@+id/errorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-    <com.darkular.tickets.ui.core.CustomButton
+    <com.darkular.tickets.presentation.core.CustomButton
         android:id="@+id/loginButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
         android:layout_gravity="center"
         android:text="@string/Login" />
 
-    <com.darkular.tickets.ui.core.CustomProgressBar
+    <com.darkular.tickets.presentation.core.CustomProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/chat_height">
 
-    <com.darkular.tickets.ui.core.CustomImageView
+    <com.darkular.tickets.presentation.core.CustomImageView
         tools:src="@tools:sample/avatars"
         android:id="@+id/avatarImageView"
         android:layout_width="@dimen/avatar_size"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/userNameTextView"
         tools:text="@tools:sample/full_names"
         android:layout_width="0dp"
@@ -27,7 +27,7 @@
         app:layout_constraintStart_toEndOf="@id/avatarImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/fromMeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         app:layout_constraintStart_toEndOf="@id/avatarImageView"
         app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/messageTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@id/userNameTextView"
         tools:text="@tools:sample/lorem/random" />
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/unreadMessagesCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

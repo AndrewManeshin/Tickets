@@ -5,8 +5,8 @@ import com.darkular.tickets.data.chat.MessagesDataMapper
 import com.darkular.tickets.data.group.group.GroupRepository
 import com.darkular.tickets.domain.chat.MessagesDataRealtimeUpdateCallback
 import com.darkular.tickets.domain.chat.MessagesDomain
-import com.darkular.tickets.ui.chat.MessagesRealtimeUpdateCallback
-import com.darkular.tickets.ui.chat.ReadMessage
+import com.darkular.tickets.presentation.chat.MessagesRealtimeUpdateCallback
+import com.darkular.tickets.presentation.chat.ReadMessage
 
 interface GroupInteractor : ReadMessage {
 

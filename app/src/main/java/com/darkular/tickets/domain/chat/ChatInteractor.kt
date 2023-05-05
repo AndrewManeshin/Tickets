@@ -3,8 +3,8 @@ package com.darkular.tickets.domain.chat
 import com.darkular.tickets.data.chat.ChatRepository
 import com.darkular.tickets.data.chat.MessagesData
 import com.darkular.tickets.data.chat.MessagesDataMapper
-import com.darkular.tickets.ui.chat.MessagesRealtimeUpdateCallback
-import com.darkular.tickets.ui.chat.ReadMessage
+import com.darkular.tickets.presentation.chat.MessagesRealtimeUpdateCallback
+import com.darkular.tickets.presentation.chat.ReadMessage
 
 interface ChatInteractor : ReadMessage {
 

@@ -8,6 +8,7 @@ import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.darkular.tickets.core.FirebaseDatabaseProvider
+import com.darkular.tickets.data.group.GroupInitial
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -23,7 +24,7 @@ interface CreateGroupRepository {
 
         override suspend fun createGroup(groupName: String): Boolean {
             val ref = firebaseDatabaseProvider.provideDatabase().child("groups").push()
-            val result = ref.setValue(GroupItem(uid, groupName.lowercase()))
+            val result = ref.setValue(GroupInitial(uid, groupName.lowercase()))
             return handle(result)
         }
 
@@ -43,7 +44,7 @@ interface CreateGroupRepository {
         private suspend fun handleGroups(query: Query) = suspendCoroutine<List<String>> { cont ->
             query.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val data = snapshot.children.mapNotNull { it.getValue(GroupItem::class.java) }
+                    val data = snapshot.children.mapNotNull { it.getValue(GroupInitial::class.java) }
                     cont.resume(data.map { it.name })
                 }
 
@@ -52,8 +53,3 @@ interface CreateGroupRepository {
         }
     }
 }
-
-data class GroupItem(
-    val userId: String = "",
-    val name: String = ""
-)

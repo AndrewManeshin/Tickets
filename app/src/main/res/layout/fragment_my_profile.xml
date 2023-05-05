@@ -7,13 +7,13 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <com.darkular.tickets.ui.core.CustomImageView
+    <com.darkular.tickets.presentation.core.CustomImageView
         android:id="@+id/avatarImageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/profile_avatar_size"
         android:scaleType="fitCenter" />
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/nameTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.darkular.tickets.ui.core.CustomTextView
+            <com.darkular.tickets.presentation.core.CustomTextView
                 android:id="@+id/loginTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 tools:text="github.com/login" />
 
-            <com.darkular.tickets.ui.core.CustomButton
+            <com.darkular.tickets.presentation.core.CustomButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/createGroupButton"
                 android:text="@string/create_group"

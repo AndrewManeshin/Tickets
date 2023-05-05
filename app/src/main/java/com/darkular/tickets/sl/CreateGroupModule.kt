@@ -8,12 +8,12 @@ import com.darkular.tickets.data.search.GroupId
 import com.darkular.tickets.domain.group.GroupInteractor
 import com.darkular.tickets.sl.core.BaseModule
 import com.darkular.tickets.sl.core.CoreModule
-import com.darkular.tickets.ui.chat.BaseMessagesDomainToUiMapper
-import com.darkular.tickets.ui.chat.ChatCommunication
-import com.darkular.tickets.ui.chat.MessageDomainToUiMapper
-import com.darkular.tickets.ui.groups.chat.GroupViewModel
-import com.darkular.tickets.ui.groups.create.CreateGroupCommunication
-import com.darkular.tickets.ui.groups.create.CreateGroupViewModel
+import com.darkular.tickets.presentation.chat.BaseMessagesDomainToUiMapper
+import com.darkular.tickets.presentation.chat.ChatCommunication
+import com.darkular.tickets.presentation.chat.MessageDomainToUiMapper
+import com.darkular.tickets.presentation.group.chat.GroupViewModel
+import com.darkular.tickets.presentation.group.create.CreateGroupCommunication
+import com.darkular.tickets.presentation.group.create.CreateGroupViewModel
 
 
 class CreateGroupModule(private val coreModule: CoreModule) : BaseModule<CreateGroupViewModel> {

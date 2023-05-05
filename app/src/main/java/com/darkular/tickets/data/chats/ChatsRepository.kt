@@ -20,7 +20,7 @@ interface ChatsRepository : Save<String> {
 
     fun stopGettingUpdates()
     fun startGettingUpdates(callback: ChatsDataRealtimeUpdateCallback)
-    suspend fun userInfo(userId: String): UserInfoData
+    suspend fun userInfo(userId: String): ChatInfoData
 
     class Base(//todo use cloudDataSource
         private val firebaseDatabaseProvider: FirebaseDatabaseProvider,
@@ -112,7 +112,7 @@ interface ChatsRepository : Save<String> {
 
         override fun save(data: String) = userIdContainer.save(data)
 
-        private val users = mutableMapOf<String, UserInfoData>()
+        private val users = mutableMapOf<String, ChatInfoData>()
 
         override suspend fun userInfo(userId: String) = if (users.containsKey(userId))
             users[userId]!!
@@ -122,7 +122,7 @@ interface ChatsRepository : Save<String> {
                 .child(userId)
                 .get()
             val userInitial = handleResult(user)
-            val userInfo = UserInfoData.Base(
+            val userInfo = ChatInfoData.User(
                 userId,
                 if (userInitial.name.isEmpty())
                     userInitial.login

@@ -2,14 +2,14 @@ package com.darkular.tickets.sl.core
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.darkular.tickets.ui.chat.ChatViewModel
-import com.darkular.tickets.ui.chats.ChatsViewModel
-import com.darkular.tickets.ui.groups.chat.GroupViewModel
-import com.darkular.tickets.ui.groups.create.CreateGroupViewModel
-import com.darkular.tickets.ui.login.LoginViewModel
-import com.darkular.tickets.ui.main.MainViewModel
-import com.darkular.tickets.ui.profile.MyProfileViewModel
-import com.darkular.tickets.ui.search.SearchViewModel
+import com.darkular.tickets.presentation.chat.ChatViewModel
+import com.darkular.tickets.presentation.chats.ChatsViewModel
+import com.darkular.tickets.presentation.group.chat.GroupViewModel
+import com.darkular.tickets.presentation.group.create.CreateGroupViewModel
+import com.darkular.tickets.presentation.login.LoginViewModel
+import com.darkular.tickets.presentation.main.MainViewModel
+import com.darkular.tickets.presentation.profile.MyProfileViewModel
+import com.darkular.tickets.presentation.search.SearchViewModel
 
 class ViewModelsFactory(
     private val dependencyContainer: DependencyContainer,

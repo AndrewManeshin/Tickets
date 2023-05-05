@@ -7,10 +7,10 @@ import com.darkular.tickets.data.chat.UserId
 import com.darkular.tickets.domain.chat.ChatInteractor
 import com.darkular.tickets.sl.core.BaseModule
 import com.darkular.tickets.sl.core.CoreModule
-import com.darkular.tickets.ui.chat.BaseMessagesDomainToUiMapper
-import com.darkular.tickets.ui.chat.ChatCommunication
-import com.darkular.tickets.ui.chat.ChatViewModel
-import com.darkular.tickets.ui.chat.MessageDomainToUiMapper
+import com.darkular.tickets.presentation.chat.BaseMessagesDomainToUiMapper
+import com.darkular.tickets.presentation.chat.ChatCommunication
+import com.darkular.tickets.presentation.chat.ChatViewModel
+import com.darkular.tickets.presentation.chat.MessageDomainToUiMapper
 
 class ChatModule(private val coreModule: CoreModule) : BaseModule<ChatViewModel> {
     override fun viewModel(): ChatViewModel {

@@ -8,7 +8,7 @@
     android:layout_marginHorizontal="@dimen/margin_16"
     android:layout_height="@dimen/search_result_height">
 
-    <com.darkular.tickets.ui.core.CustomImageView
+    <com.darkular.tickets.presentation.core.CustomImageView
         android:id="@+id/avatarImageView"
         android:layout_width="@dimen/avatar_size"
         android:layout_height="@dimen/avatar_size"/>
@@ -17,7 +17,7 @@
         android:layout_width="@dimen/margin_16"
         android:layout_height="match_parent"/>
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:id="@+id/userNameTextView"
         android:layout_width="0dp"
         android:layout_weight="1"

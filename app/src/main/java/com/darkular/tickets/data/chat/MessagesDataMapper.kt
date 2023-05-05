@@ -10,7 +10,7 @@ class BaseMessagesDataMapper : MessagesDataMapper<MessagesDomain> {
     override fun map(data: List<Pair<String, MessageData>>) =
         MessagesDomain.Success(data.map { (id, data) ->
             if (data.messageIsMine())
-                MessageDomain.MyMessageDomain(data.messageBody(), data.wasReadByUser())
+                MessageDomain.MyMessageDomain(id, data.messageBody(), data.wasReadByUser())
             else
                 MessageDomain.UserMessageDomain(id, data.messageBody(), data.avatarUri() , data.wasReadByUser())
         })

@@ -6,7 +6,7 @@ import android.net.ConnectivityManager
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import com.darkular.tickets.core.FirebaseDatabaseProvider
-import com.darkular.tickets.ui.main.NavigationCommunication
+import com.darkular.tickets.presentation.main.NavigationCommunication
 
 interface CoreModule {
 

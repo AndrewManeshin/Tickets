@@ -11,7 +11,7 @@ import com.google.firebase.ktx.Firebase
 import com.darkular.tickets.core.FirebaseDatabaseProvider
 import com.darkular.tickets.core.Read
 import com.darkular.tickets.domain.chat.MessagesDataRealtimeUpdateCallback
-import com.darkular.tickets.ui.chat.ReadMessage
+import com.darkular.tickets.presentation.chat.ReadMessage
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine

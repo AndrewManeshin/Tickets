@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.darkular.tickets.ui.core.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.darkular.tickets.presentation.core.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/myGroupNameTextView"
     android:layout_width="match_parent"

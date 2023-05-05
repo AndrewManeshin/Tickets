@@ -9,7 +9,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.darkular.tickets.core.FirebaseDatabaseProvider
 import com.darkular.tickets.core.Save
-import com.darkular.tickets.data.group.create.GroupItem
+import com.darkular.tickets.data.group.GroupInitial
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -33,11 +33,11 @@ interface SearchGroupRepository : Save<String> {
         }
 
         private suspend fun handleResult(users: Query) =
-            suspendCoroutine<List<Pair<String, GroupItem>>> { cont ->
+            suspendCoroutine<List<Pair<String, GroupInitial>>> { cont ->
                 users.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) =
                         snapshot.children.mapNotNull {
-                            Pair(it.key!!, it.getValue(GroupItem::class.java)!!)
+                            Pair(it.key!!, it.getValue(GroupInitial::class.java)!!)
                         }.let { cont.resume(it) }
 
                     override fun onCancelled(error: DatabaseError) = Unit

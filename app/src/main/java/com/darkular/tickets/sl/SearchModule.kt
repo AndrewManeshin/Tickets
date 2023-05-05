@@ -7,9 +7,9 @@ import com.darkular.tickets.data.search.SearchUserRepository
 import com.darkular.tickets.domain.search.SearchInteractor
 import com.darkular.tickets.sl.core.BaseModule
 import com.darkular.tickets.sl.core.CoreModule
-import com.darkular.tickets.ui.search.SearchCommunication
-import com.darkular.tickets.ui.search.SearchResultsMapper
-import com.darkular.tickets.ui.search.SearchViewModel
+import com.darkular.tickets.presentation.search.SearchCommunication
+import com.darkular.tickets.presentation.search.SearchResultsMapper
+import com.darkular.tickets.presentation.search.SearchViewModel
 
 class SearchModule(private val coreModule: CoreModule) : BaseModule<SearchViewModel> {
     override fun viewModel() = SearchViewModel(

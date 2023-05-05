@@ -2,8 +2,8 @@ package com.darkular.tickets.domain.login
 
 import com.darkular.tickets.data.login.LoginRepository
 import com.darkular.tickets.data.login.UserInitial
-import com.darkular.tickets.ui.login.Auth
-import com.darkular.tickets.ui.login.LoginEngine
+import com.darkular.tickets.presentation.login.Auth
+import com.darkular.tickets.presentation.login.LoginEngine
 
 interface LoginInteractor {
 

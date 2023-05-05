@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.darkular.tickets.ui.core.CustomProgressBar
+    <com.darkular.tickets.presentation.core.CustomProgressBar
         android:id="@+id/progressBar"
         android:layout_marginEnd="@dimen/margin_8"
         app:layout_constraintBottom_toBottomOf="@id/messageTextView"
@@ -14,7 +14,7 @@
         android:layout_width="@dimen/size24"
         android:layout_height="@dimen/size24" />
 
-    <com.darkular.tickets.ui.chat.MyMessageView
+    <com.darkular.tickets.presentation.chat.MyMessageView
         android:id="@+id/iconView"
         android:layout_marginEnd="@dimen/margin_8"
         app:layout_constraintBottom_toBottomOf="@id/messageTextView"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <com.darkular.tickets.ui.core.CustomTextView
+    <com.darkular.tickets.presentation.core.CustomTextView
         android:textIsSelectable="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
