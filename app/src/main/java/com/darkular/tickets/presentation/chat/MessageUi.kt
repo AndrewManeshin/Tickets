@@ -1,10 +1,11 @@
 package com.darkular.tickets.presentation.chat
 
 import com.darkular.tickets.core.Abstract
+import com.darkular.tickets.core.Comparable
 import com.darkular.tickets.presentation.core.AbstractView
 import com.darkular.tickets.presentation.core.ClickListener
 
-interface MessageUi {
+interface MessageUi : Comparable<MessageUi> {
 
     fun isMyMessage(): Boolean
 
@@ -13,8 +14,6 @@ interface MessageUi {
     fun map(textView: AbstractView.Text, progressView: AbstractView, stateView: MessageState) = Unit
 
     fun newState(state: MyMessageUiState): MessageUi
-    fun same(messageUi: MessageUi): Boolean
-    fun sameContent(messageUi: MessageUi): Boolean
     fun click(clickListener: ClickListener<MessageUi>)
 
     fun read(readMessage: ReadMessage)
@@ -43,11 +42,8 @@ interface MessageUi {
 
         override fun newState(state: MyMessageUiState) = Mine(text, state)
 
-        override fun same(messageUi: MessageUi) =
-            messageUi is Mine && text == messageUi.text
-
-        override fun sameContent(messageUi: MessageUi) =
-            messageUi is Mine && text == messageUi.text && state == messageUi.state
+        override fun same(data: MessageUi) = data is Mine && text == data.text
+        override fun sameContent(data: MessageUi) = data is Mine && text == data.text && state == data.state
 
         override fun click(clickListener: ClickListener<MessageUi>) {
             if (state == MyMessageUiState.FAILED)
@@ -72,11 +68,8 @@ interface MessageUi {
 
         override fun newState(state: MyMessageUiState) = this
 
-        override fun same(messageUi: MessageUi) =
-            messageUi is FromUser && messageId == messageUi.messageId
-
-        override fun sameContent(messageUi: MessageUi) =
-            messageUi is FromUser && text == messageUi.text && avatarUrl == messageUi.avatarUrl && isRead == messageUi.isRead
+        override fun same(data: MessageUi) = data is FromUser && messageId == data.messageId
+        override fun sameContent(data: MessageUi) = data is FromUser && text == data.text && avatarUrl == data.avatarUrl && isRead == data.isRead
 
         override fun click(clickListener: ClickListener<MessageUi>) = Unit
 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="108dp">
+
+            <com.darkular.tickets.presentation.core.CustomImageView
+                android:id="@+id/filmPosterImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars" />
+
+            <ProgressBar
+                android:id="@+id/filmPosterProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_height="wrap_content" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/filmNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Movie Title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/film_year_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Year"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
+
+            <TextView
+                android:id="@+id/film_rating_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Rating"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

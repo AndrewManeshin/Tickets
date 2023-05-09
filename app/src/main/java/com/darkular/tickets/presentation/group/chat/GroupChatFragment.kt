@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.darkular.tickets.R
 import com.darkular.tickets.databinding.FragmentChatBinding
 import com.darkular.tickets.sl.core.Feature
-import com.darkular.tickets.presentation.chat.ChatAdapter
+import com.darkular.tickets.presentation.chat.adapter.ChatAdapter
 import com.darkular.tickets.presentation.chat.MessageUi
 import com.darkular.tickets.presentation.main.BaseFragment
 import com.darkular.tickets.presentation.core.ClickListener

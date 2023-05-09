@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.darkular.tickets.presentation.core.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/myGroupNameTextView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_8"
-    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-    tools:text="Android chat" />
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:padding="@dimen/margin_8">
+
+    <com.darkular.tickets.presentation.core.CustomImageView
+        android:id="@+id/myGroupAvatarImageView"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        tools:src="@tools:sample/avatars" />
+
+    <com.darkular.tickets.presentation.core.CustomTextView
+        android:id="@+id/myGroupNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/margin_8"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:text="@tools:sample/full_names" />
+</LinearLayout>

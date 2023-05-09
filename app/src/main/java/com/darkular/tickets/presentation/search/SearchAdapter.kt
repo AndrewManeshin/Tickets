@@ -34,8 +34,8 @@ class SearchAdapter(
                 false
             ), clickListener
         )
-        1 -> SearchResultViewHolder.Progress(R.layout.progress.view(parent))
-        2 -> SearchResultViewHolder.NoResults(R.layout.no_results.view(parent))
+        1 -> SearchResultViewHolder.Progress(R.layout.progress_layout.view(parent))
+        2 -> SearchResultViewHolder.NoResults(R.layout.no_results_layout.view(parent))
         3 -> SearchResultViewHolder.Initial(R.layout.search.view(parent))
         4 -> SearchResultViewHolder.Group(
             SearchGroupResultBinding.inflate(

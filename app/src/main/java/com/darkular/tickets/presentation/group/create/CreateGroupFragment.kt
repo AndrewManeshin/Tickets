@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.darkular.tickets.R
 import com.darkular.tickets.databinding.FragmentCreateGroupBinding
-import com.darkular.tickets.sl.core.Feature
 import com.darkular.tickets.presentation.main.BaseFragment
-
+import com.darkular.tickets.sl.core.Feature
 
 class CreateGroupFragment : BaseFragment<CreateGroupViewModel>() {
     override fun viewModelClass() = CreateGroupViewModel::class.java
@@ -31,7 +30,8 @@ class CreateGroupFragment : BaseFragment<CreateGroupViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.createGroupButton.setOnClickListener {
-            viewModel.createGroup(binding.groupNameEditText.text.toString())
+            if (binding.groupNameEditText.text.toString().isEmpty()) return@setOnClickListener
+            viewModel.setGroupName(binding.groupNameEditText.text.toString())
             binding.groupNameEditText.text?.clear()
         }
         val adapter = MyGroupsAdapter()

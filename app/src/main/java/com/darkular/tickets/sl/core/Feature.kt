@@ -8,5 +8,6 @@ enum class Feature {
     CHATS,
     CHAT,
     CREATE_GROUP,
-    GROUP
+    GROUP,
+    FILMS
 }

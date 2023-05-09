@@ -3,7 +3,6 @@ package com.darkular.tickets.presentation.core
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import com.darkular.tickets.core.Abstract
 
 abstract class BaseViewModel<E : Communication<T>, T>(protected val communication: E) :
     ViewModel(), Observe<T> {

@@ -19,11 +19,11 @@ class CustomImageView : androidx.appcompat.widget.AppCompatImageView, AbstractVi
     )
     //endregion
 
-    override fun load(url: String) {
+    override fun load(url: String, isCircle: Boolean) {
         if (url.isNotEmpty()) {
             this.load(url) {
                 placeholder(R.drawable.ic_image_placeholder)
-                transformations(CircleCropTransformation())
+                if (isCircle) transformations(CircleCropTransformation())
             }
             show()
         } else {

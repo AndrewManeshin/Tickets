@@ -2,9 +2,12 @@ package com.darkular.tickets.sl
 
 import com.darkular.tickets.data.chat.BaseMessagesDataMapper
 import com.darkular.tickets.data.chat.InternetConnection
+import com.darkular.tickets.data.films.FilmsRepository
 import com.darkular.tickets.data.group.create.CreateGroupRepository
+import com.darkular.tickets.data.group.create.GroupNameContainer
 import com.darkular.tickets.data.group.group.GroupRepository
 import com.darkular.tickets.data.search.GroupId
+import com.darkular.tickets.domain.group.CreateGroupInteractor
 import com.darkular.tickets.domain.group.GroupInteractor
 import com.darkular.tickets.sl.core.BaseModule
 import com.darkular.tickets.sl.core.CoreModule
@@ -19,7 +22,14 @@ import com.darkular.tickets.presentation.group.create.CreateGroupViewModel
 class CreateGroupModule(private val coreModule: CoreModule) : BaseModule<CreateGroupViewModel> {
     override fun viewModel() = CreateGroupViewModel(
         CreateGroupCommunication.Base(),
-        CreateGroupRepository.Base(coreModule.firebaseDatabaseProvider())
+        CreateGroupInteractor.Base(
+            CreateGroupRepository.Base(
+                coreModule.firebaseDatabaseProvider(),
+                GroupNameContainer.Base(coreModule.provideSharedPreferences())
+            ),
+            FilmsRepository.Base(coreModule.firebaseDatabaseProvider())
+        ),
+        coreModule.navigationCommunication()
     )
 }
 

@@ -1,7 +1,7 @@
-package com.darkular.tickets.presentation.chats
+package com.darkular.tickets.presentation.chats.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-
+import com.darkular.tickets.presentation.chats.ChatUi
 
 class ChatsDiffUtilCallback(
     private val oldList: List<ChatUi>,

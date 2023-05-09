@@ -23,11 +23,11 @@ interface SearchGroupRepository : Save<String> {
     ) : SearchGroupRepository {
 
         override suspend fun search(query: String): List<SearchData> {
-            val users = firebaseDatabaseProvider.provideDatabase()
+            val groups = firebaseDatabaseProvider.provideDatabase()
                 .child("groups")
                 .orderByChild("name")
                 .equalTo(query)
-            return handleResult(users).map { (key, data) ->
+            return handleResult(groups).map { (key, data) ->
                 SearchData.Group(key, data.name)
             }
         }

@@ -11,6 +11,6 @@ interface AbstractView {
 
     interface Image : AbstractView {
 
-        fun load(url: String)
+        fun load(url: String, isCircle: Boolean = true)
     }
 }
